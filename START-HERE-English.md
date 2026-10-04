@@ -1,8 +1,10 @@
-# Home Padel Lab — English test build 0.0.18
+# Home Padel Lab — English test build 0.0.20
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.18-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.20-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+Build 0.0.20 adds a shared **Training · bot / ball machine** selector and **Ball in hand · fit & release** with a live ball preview and coloured controller-local adjustment arrows. See `Training-and-HandBall-0.0.20-English.md` for the new controls and a short test checklist. The bot predicts with the actual floor/glass/drag/spin solver, including shots off your own back glass. Selecting a mode does not fire a ball. Grip velocity (including wrist rotation) is used at release when valid and consistent with recent movement; a short filtered position history is the fallback. Trigger pickup/release thresholds are 55%/35%, with full neutral needed after a menu or cancellation. There is no preset throw boost. Ball placement saves separately for each free hand. Racket fit, power response, wall bounce and earlier reports remain intact. Bot returns remain controlled neutral-spin practice trajectories, not full opponent swings; it can miss and is not a match AI. No multiplayer or furniture detection.
 
 Build 0.0.18 adds free-hand ball pickup/release when the ball machine is OFF. With the racket in your right hand, squeeze and hold the LEFT index trigger to hold a ball above that controller. Open the trigger to drop it; move your hand while releasing to toss it. The toss inherits measured hand movement, without a preset launch boost or aiming assistance. Squeeze again for another ball. A left-handed racket mirrors this to the right controller. The ball cannot be picked up during automatic feeding, a pending machine launch, menus or fixed calibration. Menu, tracking loss or app pause cancels a held ball without throwing; release the trigger fully before picking up again. Hand releases also start local reports if auto-save is ON. Stand in your safe area; do not chase the ball.
 
@@ -41,7 +43,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.18-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.20-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -50,7 +52,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.18-English.apk
+.\adb.exe install -r .\HomePadel-0.0.20-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 
@@ -89,8 +91,9 @@ Files are flushed about every 250 ms, and on app pause/normal shutdown. An abrup
 ## Gameplay and options controls
 
 - Right controller: racket.
-- Left X: launch one ball.
-- Left Y: start/stop automatic feeding.
+- Left X: one gentle serve while the bot is active; otherwise one machine ball.
+- Left Y: stop an active bot; otherwise start/stop automatic feeding.
+- Free-hand index trigger: hold a ball when automatic feeding is OFF, open to drop/toss. Use **Ball in hand · fit & release** if its placement feels wrong.
 - Left Menu button (three lines): open options; press again to save and close.
 - Every options screen uses the LEFT controller: stick up/down selects a row, left/right changes its value, X runs a highlighted action or resets a highlighted value, Y returns to the main menu. The bottom line says exactly what X will do.
 - **Racket fit** combines hand, position and rotation on one screen. For grip position, match the RED/GREEN/BLUE arrow near your virtual handle: push the left stick right to move toward that arrow, left to move the other way. Rotation controls show your adjustment relative to the default, starting at zero degrees. Hold the left trigger for smaller adjustment steps. **Save and test grip** closes without launching a ball.
@@ -118,6 +121,8 @@ If the selected drill shows **NOT FEASIBLE**, change the court/bounce or choose 
 Racket-only imports never change physics/court. Physics-only imports preserve another player's personal grip and racket hand. A grip that feels good for one player is not automatically correct for everyone.
 
 Optional: **Export JSON file** saves a full-precision setup file into the app's `Setups` directory; its filename appears on screen. Retrieving that file from the Quest currently needs PC-assisted app-file access. Exporting does not send a message or upload a file automatically.
+
+The existing HP1 sharing code covers racket/physics/court/machine settings, NOT the new ball-in-hand placement or bot pace. For ball placement, send a screenshot of the three centimetre values with the racket hand, plus a report containing a few drops/tosses. For bot feedback, include pace, placement and court size.
 
 Import currently uses **Load SharedSetup.json** after a supplied JSON file (or plain setup code) has been placed in the app's files using a PC. The desktop lab can also paste and apply a setup code. There is no in-headset keyboard or one-click network sharing yet. Import always stops the machine and validates version, model and parameter ranges; code checksums catch damaged code text.
 

@@ -1,5 +1,13 @@
 # Testing and calibration feedback
 
+## Bot, machine and hand release (0.0.20)
+
+Follow [the training and hand-ball guide](Training-and-HandBall-0.0.20-English.md) for the exact controls and five-minute checklist. Start with both modes OFF: fit the ball on the free hand using the live preview, then test five still-hand drops and gentle upward/forward tosses. Return the index trigger fully to neutral before each new pickup. No preset throw boost is applied.
+
+Select BOT in **Training · bot / ball machine**, pace 1.00 and Centre returns. Choose **Start selected mode · no ball** and press X. Close menus and use the free-hand primary face button for a gentle serve, then hit with your racket: the bot returns your subsequent shots, not an untouched serve/drop. Try straight and gentle back-glass shots, then switch to MACHINE and back. Opening Menu stops both; closing alone does not restart training. Never chase the bot or the ball; its target is a fixed virtual area, not a room scan.
+
+Keep auto-save ON. Share build, headset model, racket hand, ball-fit screenshot and voluntary exported report. `hand_release` records include the ball offset and release velocity source. Bot returns are counted separately from player hits. HP1 does not contain ball fit or bot settings. Observe menu usability, release feel, missed/repeated hits and smoothness; automated tests do not certify these on a headset.
+
 ## Hand release and contact comparison (0.0.18)
 
 Keep the machine OFF and close Menu. With a right-handed racket, hold the LEFT index trigger to pick up a ball above that controller, then release it above your racket. Drop from a still hand first; then try a gentle toss using hand movement. Squeeze again for the next ball. With a left-handed racket, use the right trigger. Pickup is blocked during auto-feed, a pending machine launch, menus and calibration. If tracking is lost or you open Menu while holding, the ball is cancelled rather than thrown; return the trigger to neutral before trying again.

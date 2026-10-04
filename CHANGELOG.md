@@ -1,5 +1,15 @@
 # Beta changelog
 
+## 0.0.20
+
+- Simple blue/cyan training bot and explicit bot/machine selector. Start selected mode closes the menu ready, without automatically firing a ball. The modes are mutually exclusive; opening Menu stops both.
+- Bot prediction uses the same simulated court bounces, drag and spin, with finite movement speed. It can recover some own/opponent back-glass shots and can miss. Returns are controlled neutral-spin practice shots near the fixed virtual starting area, not full physical opponent swings or a tracked safe location.
+- Dedicated ball-in-hand fit menu with live preview and controller-local coloured position arrows. Placement saves separately per free hand; racket fit and physics are not reset. Default ball placement is a starting fit, not universal anatomy.
+- Index-trigger pickup/release hysteresis and neutral rearm. Hand release uses explicit grip pose and tracked contact-point velocity when valid, otherwise recent filtered pose history; no preset boost. Tracking jumps/gaps reset the history. Reports add hand-release placement, velocity source and trigger state; nothing uploads automatically.
+- Retains wall 0.55, racket power 0.45, fast-swing curve, repeated-contact guard and existing saved settings/reports. HP1 codes do not contain ball placement or bot settings: send their screenshots separately.
+- 428 pure checks plus 1,093 unique Unity checks passed (1,521 total). Version 20 / 0.0.20 and same signing certificate audited. Installed as an update on the owner's Quest 3; launching awaits both controllers. Automated checks and installation do not verify physical feel or sustained refresh. Quest 3S untested; no scoring, full rules or multiplayer.
+- See [training and hand-ball instructions](Training-and-HandBall-0.0.20-English.md). Update without uninstalling. The audit inside the Friend ZIP is a build-time snapshot, before installation/publication.
+
 ## 0.0.18
 
 - Machine OFF: hold the free-hand index trigger to pick up a ball, release to drop/toss. Default LEFT with right racket; mirrored for left-handed play. No preset throw boost or aiming assistance; menu, tracking loss and app pause cancel without firing. Automatic feeding, pending machine launches and fixed calibration block pickup; neutral trigger is required after returning.
