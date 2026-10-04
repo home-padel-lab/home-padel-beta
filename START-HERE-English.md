@@ -1,0 +1,106 @@
+# Home Padel Lab — English test build 0.0.13
+
+This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
+
+Install `HomePadel-0.0.13-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+The supplied yellow padel-ball model from build 0.0.11 is retained, including its seam and logo. Its diameter remains 67 mm and its visible spin follows the simulation. Shared setup codes and saved grip/bounce adjustments remain compatible.
+
+Build 0.0.12 adds automatic local test reports and five fixed calibration tests. Physics responses and your saved grip/bounce values are not automatically changed by recording or calibration.
+
+Build 0.0.13 makes menu changes more deliberate and increases racket-impact vibration. Push the LEFT stick firmly in one direction: the menu ignores axis input below 75% and ambiguous diagonals. Release toward the centre between pushes for single steps. Holding starts repeating after 0.65 seconds, then once every 0.35 seconds. Return to centre before changing direction. X/Y take priority over stick movement, so pressing a button cannot accidentally act on a different row. Keep holding the left trigger for fine racket/physics adjustments.
+
+Impact vibration is stronger on the controller holding the racket, with stronger pulses for harder hits. Floor, glass and net bounces do not vibrate your hand. Very small racket microcontacts do not keep buzzing. Actual vibration feel and requested pulse duration still need testing on your headset.
+
+## Install on a friend's Quest
+
+Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the computer first. Your friend does NOT need Unity or the project source.
+
+1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
+2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
+3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
+4. If you already use an APK installer, install `HomePadel-0.0.13-English.apk` with it. Otherwise follow the Windows alternative below.
+5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
+
+### Windows alternative: Android Platform Tools
+
+Download [Google's official SDK Platform Tools for Windows](https://developer.android.com/tools/releases/platform-tools), extract them and copy the APK into the extracted `platform-tools` folder. Open PowerShell in that folder and run these commands one at a time:
+
+```powershell
+.\adb.exe devices
+.\adb.exe install -r .\HomePadel-0.0.13-English.apk
+.\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
+```
+
+Before installing, the first command must show your headset with the status `device`. If it says `unauthorized`, approve USB debugging inside the headset. If it shows no headset, check the data cable and driver. Installation should finish with `Success`. If more than one Android device is connected, disconnect the others before using these commands. The `-r` option updates the same app while keeping its local settings. See [Android's official ADB guide](https://developer.android.com/tools/adb) for troubleshooting.
+
+## First two minutes
+
+Clear a safe standing area and keep the Quest boundary active. Press the LEFT Menu button (three lines). Use the LEFT stick up/down to select, left/right to change, and X to confirm. Start with **Racket fit**, then **Save and test grip**. Reopen Menu, choose **Ball machine**, select **Slow straight shot**, then **Launch one ball**. It launches after two seconds. Once comfortable, select **Start practice** for repeated balls. Opening Menu stops the machine.
+
+## Automatic recording and calibration
+
+**Just play:** recording is ON by default. Each launched ball starts a measured trial. Launches, setup values, ball trajectories, virtual racket poses and floor/glass/net/racket contacts are saved locally. Opening Menu ends that ball's trial; launching again starts another. Nothing is uploaded. No camera images, room scans, microphone audio or account IDs are recorded.
+
+1. Play for a few minutes using the same court and one repeated drill. Keep your boundary active; do not chase the ball.
+2. Open **Menu > Calibration & reports**. **Auto-save game data** shows ON/OFF. X or left/right toggles it. The choice is remembered. OFF prevents new measurements and feedback, but does not delete existing reports.
+3. Optionally select **Your feedback** with left/right, then highlight **Save feedback** and press X. Ratings are linked to the last recorded ball: Feels good / Bounce too high / Too fast / Too many bounces.
+4. Select **Export test report**, then X. This creates a stable `report-...jsonl` snapshot containing the session so far. The filename appears on screen. Export does NOT send it anywhere. Repeated export without new data reuses the same snapshot.
+5. Connect the headset to an authorized PC when you want the files retrieved. Your tester can send the exported report, their headset model and a short description of what felt wrong. A setup-code screenshot alone does not include measured motion/bounce data.
+
+**Run calibration:** highlight this action and press X. The menu closes, waits two seconds and runs five virtual tests lasting about 17 seconds in total: drops from 1.00 m, 1.50 m and 2.54 m, then perpendicular glass shots at 4 and 7 m/s. Stand still and WATCH; do not hit or chase these balls. Racket collisions are disabled during these tests. Launches are fixed and are not re-aimed when bounce settings change. Opening Menu, losing racket tracking or pausing the app cancels the sequence. Reopening Menu lets you export the results. The tests do not automatically select new physics values.
+
+Normal play and fixed tests use the same physics. Ball/racket trajectories are sampled at 15 Hz; significant contacts are recorded individually. Very small contacts below 0.2 m/s are counted separately to avoid flooding the report. Rebound peak height is measured on each physics step and recorded at floor contacts. The report identifies metres, seconds, rad/s, build version and the exact configuration at each launch.
+
+Reports are in the app's `CalibrationReports` folder, with snapshots in `CalibrationReports/Exports`. For the current Android build, PC-assisted retrieval normally uses:
+
+```powershell
+.\adb.exe pull /sdcard/Android/data/com.homepadel.lab/files/CalibrationReports ./HomePadelReports
+```
+
+Run this from your Platform Tools folder with the authorized headset connected. Send a `report-...jsonl` file from the retrieved `Exports` folder. If access fails, ask for PC-assisted retrieval rather than changing unrelated device permissions. Installing an update with `-r` keeps app files; uninstalling the app can remove them, so retrieve reports first.
+
+Files are flushed about every 250 ms, and on app pause/normal shutdown. An abrupt crash or power loss can lose the last buffered records. Recording stops with an error if a session reaches 20 MB or the report folder reaches 100 MB. No old reports are automatically deleted. Check the report status in this menu; it must not show SAVE ERROR. These files contain simulated-game measurements, not proof of real-world accuracy.
+
+## Gameplay and options controls
+
+- Right controller: racket.
+- Left X: launch one ball.
+- Left Y: start/stop automatic feeding.
+- Left Menu button (three lines): open options; press again to save and close.
+- Every options screen uses the LEFT controller: stick up/down selects a row, left/right changes its value, X runs a highlighted action or resets a highlighted value, Y returns to the main menu. The bottom line says exactly what X will do.
+- **Racket fit** combines hand, position and rotation on one screen. For grip position, match the RED/GREEN/BLUE arrow near your virtual handle: push the left stick right to move toward that arrow, left to move the other way. Rotation controls show your adjustment relative to the default, starting at zero degrees. Hold the left trigger for smaller adjustment steps. **Save and test grip** closes without launching a ball.
+- **Bounce & feel** adjusts glass rebound, floor rebound, racket response, friction and spin curvature. The selected row explains what a higher/lower value does. X resets only that value; **Reset bounce & feel** resets physics without changing your grip or court.
+
+Opening the menu pauses the ball and stops the machine, including any pending shot. Pressing Menu to close saves your settings but does NOT launch a ball. Explicit launch/start actions below are the exception because you deliberately chose to start. Losing racket tracking also stops the machine. Settings are saved locally on your headset, including hand, grip, physics, court and drill settings.
+
+## Start the ball machine
+
+1. Open Menu and select **Ball machine · start practice**, then press X.
+2. Highlight **Shot type** and use left/right to choose a ball. Start with **Slow straight shot**.
+3. Set **Seconds between balls** and **Practice mode**: repeat one shot or cycle all fifteen.
+4. Select **Launch one ball** and press X for ONE ball after a two-second delay, or select **Start practice** and press X for automatic feeding after the selected interval.
+5. The menu closes so you can play. Press Menu to stop safely and adjust again. With a right-hand racket, left Y also stops/starts auto-feed during play; left X launches a ball manually. For a left-hand racket, these gameplay actions use right A/B. Configuration always uses the left controller.
+
+If the selected drill shows **NOT FEASIBLE**, change the court/bounce or choose another ball. Launch actions stay blocked until a valid trajectory exists. **Save without launching** closes the menu with the machine off.
+
+## Send a good setup back
+
+1. Open **Share setup**, or use **Share racket fit** / **Share bounce & feel** from the adjustment screen.
+2. In **Settings to share**, choose **Racket only**, **Physics + court + machine**, or **Everything** with left/right.
+3. Take a screenshot showing BOTH lines of the `HP1-...` setup code and send it with your feedback. No configuration-file access is needed for this method. The code reproduces the chosen settings; it is not just a random reference number.
+4. Please include headset model, racket hand, drill used and what improved. Change one physics setting at a time and compare the same drill at the same court size.
+
+Racket-only imports never change physics/court. Physics-only imports preserve another player's personal grip and racket hand. A grip that feels good for one player is not automatically correct for everyone.
+
+Optional: **Export JSON file** saves a full-precision setup file into the app's `Setups` directory; its filename appears on screen. Retrieving that file from the Quest currently needs PC-assisted app-file access. Exporting does not send a message or upload a file automatically.
+
+Import currently uses **Load SharedSetup.json** after a supplied JSON file (or plain setup code) has been placed in the app's files using a PC. The desktop lab can also paste and apply a setup code. There is no in-headset keyboard or one-click network sharing yet. Import always stops the machine and validates version, model and parameter ranges; code checksums catch damaged code text.
+
+## Safety and feedback
+
+Start with **Slow straight shot**, one ball at a time, while standing in one place. Keep the Quest safety boundary active, use wrist straps, and clear the entire reach of your arms and controllers. Do not chase balls. Stop if passthrough or tracking is lost.
+
+The virtual court and walls are NOT a measurement of safe physical space. This prototype does not detect furniture or obstacles. Court size changes virtual geometry only.
+
+Please report: headset model, grip alignment, racket-face orientation, bounce feel, any missed contacts, and whether the menus are readable. A screenshot or short recording helps. Physics values are experimental, not measurements of a real padel racket or ball.

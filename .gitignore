@@ -1,0 +1,26 @@
+# Distribution binaries belong in private GitHub Releases, not Git history.
+*.apk
+*.aab
+*.zip
+*.rar
+# Do not commit tester measurements or full logs.
+*.jsonl
+*.log
+CalibrationReports/
+HomePadelReports/
+# Original purchased assets, Unity projects, keys and credentials do not belong here.
+*.fbx
+*.blend
+*.obj
+*.glb
+*.stl
+*.jks
+*.keystore
+*.pem
+.env*
+Assets/
+Library/
+Temp/
+UserSettings/
+ProjectSettings/
+Packages/
