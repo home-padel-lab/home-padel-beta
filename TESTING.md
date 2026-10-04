@@ -1,5 +1,11 @@
 # Testing and calibration feedback
 
+## Hand release and contact comparison (0.0.18)
+
+Keep the machine OFF and close Menu. With a right-handed racket, hold the LEFT index trigger to pick up a ball above that controller, then release it above your racket. Drop from a still hand first; then try a gentle toss using hand movement. Squeeze again for the next ball. With a left-handed racket, use the right trigger. Pickup is blocked during auto-feed, a pending machine launch, menus and calibration. If tracking is lost or you open Menu while holding, the ball is cancelled rather than thrown; return the trigger to neutral before trying again.
+
+Try ten small upward taps while standing safely in one place. Compare soft and moderate strokes with the same wall 0.55/power 0.45 and HP1 setup. Report missed/extra hits, unnatural boosts and grip discomfort. Keep auto-save ON: each hand release starts a trial labelled `hand` / `Hand release`. The contact guard is geometric rather than a fixed cooldown. Optional report fields `racketContactHeld` and `zeroImpulseRacketContacts` help inspect overlap/zero-impulse episodes; do not assume all measured contacts are actual strokes.
+
 ## Rendering comparison (0.0.17)
 
 Wear the headset for 2–3 minutes on the same drill/settings as 0.0.16. Check passthrough remains visible, both eyes agree, glass is unobtrusive and paddle/menus render correctly. Stop if passthrough or tracking fails; do not chase balls. Requested 72 Hz is not proof of stable performance.

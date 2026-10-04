@@ -1,5 +1,13 @@
 # Beta changelog
 
+## 0.0.18
+
+- Machine OFF: hold the free-hand index trigger to pick up a ball, release to drop/toss. Default LEFT with right racket; mirrored for left-handed play. No preset throw boost or aiming assistance; menu, tracking loss and app pause cancel without firing. Automatic feeding, pending machine launches and fixed calibration block pickup; neutral trigger is required after returning.
+- Corrects a reproduced racket-contact episode that produced up to twelve events, most with zero impulse, and exhausted the physics step. Rearms after geometric separation with 1 mm hysteresis, not an arbitrary cooldown. Zero-impulse contacts are diagnostic only, not hits/haptics.
+- Hand releases start local measured trials when auto-save is ON. Reports add `racketContactHeld` to samples and `zeroImpulseRacketContacts` to samples/ball summaries. No automatic uploads.
+- Grip pose/anchor/mesh alignment reviewed; existing calibration is retained. Physical controller fit still requires headset testing. Wall 0.55, racket power 0.45, progressive speed curve, court, rendering and previous local reports retained.
+- 319 pure checks and 1,043 Unity build checks passed (1,362 total). APK version 18 / 0.0.18, signature, permissions and packaged components audited; same signing certificate as 0.0.17. Installed as an update on the owner's Quest; opening awaits activation of both controllers. Installation is not verification of on-headset feel/rendering or stable refresh. No multiplayer; Quest 3S untested.
+
 ## 0.0.17
 
 - Migrates to URP Forward, Vulkan single-pass stereo and medium fixed foveation; requests 72 Hz. No postprocessing, camera depth/opaque buffers or shadow maps.

@@ -1,8 +1,10 @@
-# Home Padel Lab — English test build 0.0.17
+# Home Padel Lab — English test build 0.0.18
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.17-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.18-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+Build 0.0.18 adds free-hand ball pickup/release when the ball machine is OFF. With the racket in your right hand, squeeze and hold the LEFT index trigger to hold a ball above that controller. Open the trigger to drop it; move your hand while releasing to toss it. The toss inherits measured hand movement, without a preset launch boost or aiming assistance. Squeeze again for another ball. A left-handed racket mirrors this to the right controller. The ball cannot be picked up during automatic feeding, a pending machine launch, menus or fixed calibration. Menu, tracking loss or app pause cancels a held ball without throwing; release the trigger fully before picking up again. Hand releases also start local reports if auto-save is ON. Stand in your safe area; do not chase the ball.
 
 Build 0.0.17 migrates rendering to URP with fixed foveation and requests 72 Hz. It adds inexpensive transparent glass and a simple ball shadow, without changing the physics, saved racket fit or menu controls from the published 0.0.16. It excludes unused developer agents/debugger tools, eye-tracking/capture permissions and network/microphone permissions. It is an offline sideload beta, not a certified Store release. Quest 3S is a development target but remains untested. Check the room remains visible, menus/paddle render correctly and movement stays smooth. Stop playing if passthrough is lost. Sustained 72 Hz and visual behaviour still require headset testing.
 
@@ -12,7 +14,7 @@ Build 0.0.16 adds experimental progressive racket response for the compact court
 
 To compare: use the same drill and settings as 0.0.15. Start with several soft taps, then moderate upward taps and normal faster strokes while standing still. Keep auto-save ON. Do not swing dangerously fast or chase balls. Reports include the raw `SurfaceVelocity`, the `ResponseSurfaceVelocity` used for response, and the curve parameters at each launch. The curve is fixed in this build and is not part of an HP1 code; always include the build number when sharing a configuration.
 
-Known issue under investigation: some strokes create repeated racket contacts separated by fractions of a millisecond. Recorded racket-contact counts are therefore not reliable counts of your actual strokes. This release does not fix that issue. Tell us what you felt and send a report voluntarily rather than relying on hit counts alone.
+Build 0.0.18 corrects a reproduced repeated-contact case: an overlapping racket/ball episode could create up to 12 reported contacts, most with zero impulse, and exhaust a physics step. A new hit now requires geometric separation from the face, with 1 mm hysteresis, rather than an arbitrary timed cooldown. Zero-impulse contact is diagnostic only, not a hit or vibration. Reports add `racketContactHeld` to trajectory samples and `zeroImpulseRacketContacts` to samples/ball summaries. This does not prove every contact is correct: send reports if taps feel strange or repeated. Wall 0.55, racket power 0.45, the progressive speed curve and your saved grip remain unchanged.
 
 The supplied yellow padel-ball model from build 0.0.11 is retained, including its seam and logo. Its diameter remains 67 mm and its visible spin follows the simulation. Shared setup codes and saved grip/bounce adjustments remain compatible.
 
@@ -39,7 +41,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.17-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.18-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -48,7 +50,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.17-English.apk
+.\adb.exe install -r .\HomePadel-0.0.18-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 
@@ -57,6 +59,8 @@ Before installing, the first command must show your headset with the status `dev
 ## First two minutes
 
 Clear a safe standing area and keep the Quest boundary active. Press the LEFT Menu button (three lines). Use the LEFT stick up/down to select, left/right to change, and X to confirm. Start with **Racket fit**, then **Save and test grip**. Reopen Menu, choose **Ball machine**, select **Slow straight shot**, then **Launch one ball**. It launches after two seconds. Once comfortable, select **Start practice** for repeated balls. Opening Menu stops the machine.
+
+For gentle tap testing, keep the machine OFF and close Menu. Hold the LEFT trigger to pick up a ball, then release it above the racket face. Try ten small upward taps without leaving your safe standing area. Compare slow and moderate strokes before changing power or bounce. The grip anchor and pose have been checked mathematically; only you can confirm the physical fit while holding the controller. Existing calibration has not been reset.
 
 ## Automatic recording and calibration
 
