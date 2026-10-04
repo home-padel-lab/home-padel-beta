@@ -1,8 +1,8 @@
-# Home Padel Lab — English test build 0.0.13
+# Home Padel Lab — English test build 0.0.14
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.13-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.14-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
 
 The supplied yellow padel-ball model from build 0.0.11 is retained, including its seam and logo. Its diameter remains 67 mm and its visible spin follows the simulation. Shared setup codes and saved grip/bounce adjustments remain compatible.
 
@@ -12,6 +12,12 @@ Build 0.0.13 makes menu changes more deliberate and increases racket-impact vibr
 
 Impact vibration is stronger on the controller holding the racket, with stronger pulses for harder hits. Floor, glass and net bounces do not vibrate your hand. Very small racket microcontacts do not keep buzzing. Actual vibration feel and requested pulse duration still need testing on your headset.
 
+Build 0.0.14 changes the compact court: default length 6.50 m (previously 6.00), width 2.40 m, net height 0.78 m (previously 0.88), back walls 2.00 m and lower middle side walls 1.40 m. End sections and the doorway frames are taller, at 2.00 m. Side door openings are 0.80 m wide and 1.75 m tall. Balls can leave through the doors or above the visible walls; invisible tall glass is not retained. These are experimental virtual proportions, not regulation padel dimensions or measured Racket Club geometry.
+
+The default glass response is now 0.35 instead of 0.50: a perpendicular, no-spin contact returns 35% of the incoming normal speed. Angled/spinning contacts also depend on friction. Floor response, gravity, racket fit and the build 0.0.13 controls are unchanged. Glass drills start closer to the appropriate side so they hit a visible panel.
+
+Updating preserves custom grip, floor/physics settings and saved reports. Untouched old 6.00 m / 0.50 defaults migrate once to 6.50 m / 0.35; other custom length and wall-response values are retained. To try the new defaults with a custom configuration, use **Court size > Reset court** and reset only the **Wall bounce** row in **Bounce & feel**. Do not reset your racket fit. HP1 codes remain readable, but the wall/net profile is defined by the build: compare configurations on the SAME app version and include the version in feedback.
+
 ## Install on a friend's Quest
 
 Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the computer first. Your friend does NOT need Unity or the project source.
@@ -19,7 +25,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.13-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.14-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -28,7 +34,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.13-English.apk
+.\adb.exe install -r .\HomePadel-0.0.14-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 

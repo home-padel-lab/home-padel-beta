@@ -8,7 +8,7 @@ Mixed-reality padel physics prototype for Meta Quest 3. This repository is for i
 2. Download the latest English **Friend Package ZIP**, then extract it on your computer. It contains the APK and `START-HERE-English.md`. Alternatively download the APK on its own.
 3. Follow [the installation and controls guide](START-HERE-English.md). Your friend does not need Unity. Quest developer mode and an authorized USB connection are needed for the installation method described there.
 
-Current build: **0.0.13**. New in this build: firmer joystick input, slower repeat and stronger racket-impact vibration. The app is offline; there is no multiplayer yet.
+Current build: **0.0.14**. New in this build: a slightly longer compact court, lower net, stepped side walls with taller ends/doorway frames, open side doors and softer glass rebound. Firmer joystick input and stronger racket-impact vibration from 0.0.13 are retained. The app is offline; there is no multiplayer yet.
 
 ## What to test
 
@@ -30,4 +30,4 @@ The app saves measurements locally by default; nothing is uploaded automatically
 
 This repository is intended to remain **private**. Private access does not prevent an invited person from keeping or redistributing downloaded files. Keep original purchased assets, credentials, signing keys and Unity source out of this beta repository.
 
-On a personal GitHub account, invited collaborators have write access, not read-only access. For read-only testers, the owner should use an organization-owned private repository and grant **Read**. No tester invitations are automatic.
+This private beta repository belongs to **home-padel-lab**. Testers should be invited with **Read** access so they can download releases and report issues without changing repository files. No tester invitations are automatic. Only the owner is currently a member of the organization.
