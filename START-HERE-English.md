@@ -1,8 +1,10 @@
-# Home Padel Lab — English test build 0.0.16
+# Home Padel Lab — English test build 0.0.17
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.16-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.17-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+Build 0.0.17 migrates rendering to URP with fixed foveation and requests 72 Hz. It adds inexpensive transparent glass and a simple ball shadow, without changing the physics, saved racket fit or menu controls from the published 0.0.16. It excludes unused developer agents/debugger tools, eye-tracking/capture permissions and network/microphone permissions. It is an offline sideload beta, not a certified Store release. Quest 3S is a development target but remains untested. Check the room remains visible, menus/paddle render correctly and movement stays smooth. Stop playing if passthrough is lost. Sustained 72 Hz and visual behaviour still require headset testing.
 
 The published 0.0.16 build uses **Wall bounce = 0.55** and **Racket power = 0.45** by default. A perpendicular wall hit returns 55% of its incoming normal speed; this is not a uniform reduction of total speed for angled/spinning hits. Updating from the previous saved 0.45 wall default adopts 0.55 once; other custom wall values and all saved power, grip, court, floor and report data are preserved. Old preferences remain intact. After updating, check **Menu > Bounce & feel > Wall bounce**; use 0.55 for a comparable baseline. Do not reset all settings or uninstall the app.
 
@@ -37,7 +39,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.16-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.17-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -46,7 +48,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.16-English.apk
+.\adb.exe install -r .\HomePadel-0.0.17-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 
@@ -116,6 +118,18 @@ Optional: **Export JSON file** saves a full-precision setup file into the app's 
 Import currently uses **Load SharedSetup.json** after a supplied JSON file (or plain setup code) has been placed in the app's files using a PC. The desktop lab can also paste and apply a setup code. There is no in-headset keyboard or one-click network sharing yet. Import always stops the machine and validates version, model and parameter ranges; code checksums catch damaged code text.
 
 ## Safety and feedback
+
+### Rendering check (0.0.17)
+
+For a useful comparison, wear the headset and use the same drill/settings for 2–3 minutes. Include a minute of normal strokes, turn your head naturally and open/close the menu. Keep a clear standing space; do not chase balls. Tell us if glass hides the room, either eye shows an incorrect image, menus/paddle are missing or movement stutters.
+
+A separate local CSV is saved every five seconds while the app is running. It records game timing/counters, not video/audio. Retrieve it with your authorized PC:
+
+```powershell
+.\adb.exe pull /sdcard/Android/data/com.homepadel.lab/files/reports/performance ./HomePadelPerformance
+```
+
+Send the `render-...csv` file voluntarily with headset model, build number and which drill you used. Empty CPU/GPU/counter columns mean unsupported measurements, not zero cost. Display Hz and app-observed FPS do not by themselves prove compositor stability. Existing physics JSONL reports remain in `CalibrationReports` as described above.
 
 Start with **Slow straight shot**, one ball at a time, while standing in one place. Keep the Quest safety boundary active, use wrist straps, and clear the entire reach of your arms and controllers. Do not chase balls. Stop if passthrough or tracking is lost.
 

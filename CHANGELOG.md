@@ -1,5 +1,15 @@
 # Beta changelog
 
+## 0.0.17
+
+- Migrates to URP Forward, Vulkan single-pass stereo and medium fixed foveation; requests 72 Hz. No postprocessing, camera depth/opaque buffers or shadow maps.
+- Low-cost transparent glass matches the existing court dimensions/open doors. Procedural ball shadow supplies a floor-depth cue; no room scan or realtime reflections.
+- Non-development tester APK excludes developer agents, Immersive Debugger, Operator/Metrics libraries and unused eye-tracking/capture/microphone/network permissions. Essential Meta runtime and passthrough feature remain.
+- Physics, fast-swing response, default wall 0.55 / power 0.45, saved grip/hand, court, menu controls, haptics and physics reports unchanged.
+- Local performance CSVs provide five-second app-timing windows; optional unsupported counters remain empty. Nothing is recorded from the camera/mic or uploaded automatically.
+- 250 pure checks and 1,022 Unity build checks passed, plus five glass/transparency editor checks. Final APK version, signature, permissions and packaged components audited. Same signing certificate as 0.0.16; installed as an update on the owner's Quest. Active headset rendering and sustained refresh still need testing; installation is not visual verification.
+- Known repeated racket-contact issue remains. No multiplayer. Quest 3S is a development target, not yet tested; this is a private sideload beta, not a certified Meta Store release.
+
 ## 0.0.16
 
 - Default wall response 0.55 for more return towards the opposite half. Previous saved 0.45 defaults adopt 0.55 once; other custom responses and original preferences are preserved.

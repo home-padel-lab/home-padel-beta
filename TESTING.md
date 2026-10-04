@@ -1,5 +1,11 @@
 # Testing and calibration feedback
 
+## Rendering comparison (0.0.17)
+
+Wear the headset for 2–3 minutes on the same drill/settings as 0.0.16. Check passthrough remains visible, both eyes agree, glass is unobtrusive and paddle/menus render correctly. Stop if passthrough or tracking fails; do not chase balls. Requested 72 Hz is not proof of stable performance.
+
+Local performance CSV files are stored under `reports/performance` in the app's files. Use the authorized-PC retrieval instructions in [START-HERE-English.md](START-HERE-English.md). Share a CSV voluntarily with headset model, build and drill used. Empty counters mean unsupported measurements, not zero cost. No automatic uploads or camera/audio recordings. App timing is not compositor certification.
+
 ## Quick comparison
 
 1. Use a safe, cleared standing area. Do not move around chasing the ball.
