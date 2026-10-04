@@ -1,5 +1,16 @@
 # Beta changelog
 
+## 0.0.16
+
+- Default wall response 0.55 for more return towards the opposite half. Previous saved 0.45 defaults adopt 0.55 once; other custom responses and original preferences are preserved.
+- Racket power remains 0.45 by default. Soft advancing contact-point motion up to 3 m/s is unchanged; above this, experimental response uses `3 + 2 * ln(1 + (speed - 3) / 2)`. Continuous progressive response in all directions, no hard ball-speed cutoff. Raw tracking, sweep geometry and incoming ball motion are not scaled.
+- Saved power, racket fit, hand, court, floor response, gravity, haptics, joystick controls and reports retained. Racket spin can vary with the smaller contact impulse on compressed hits.
+- Reports include raw and response contact velocities plus the curve parameters. HP1 codes do not encode the curve: compare on the same build.
+- The first published 0.0.16 package includes wall 0.55. The earlier local-only 0.0.16 candidate had wall 0.45 as its default and was not released on GitHub.
+- Known issue: repeated racket contacts can inflate reported hit counts. This release does not fix it; counts are not actual stroke counts.
+- APK build, signature and version 16 / 0.0.16 verified. Passed 250 pure physics/drill checks and 982 Unity checks: 1,232 in total, including wall-default migration and preservation of custom values. Automated checks do not certify real-world feel or resolve the known contact issue.
+- Experimental beta; no multiplayer, automatic uploads or certification of real-world physics.
+
 ## 0.0.15
 
 - Wall response 0.45: a little more return than the previous 0.30 saved setting / 0.35 default.
