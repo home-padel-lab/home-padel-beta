@@ -1,5 +1,14 @@
 # Beta changelog
 
+## 0.0.15
+
+- Wall response 0.45: a little more return than the previous 0.30 saved setting / 0.35 default.
+- Racket response 0.45 instead of 0.65: moving-racket shots are softer, without a ball-speed cap or swing-speed clamp.
+- These two values deliberately adopt the new profile on the first upgrade, using separate preferences so the earlier values remain intact. Later adjustments are saved normally.
+- Racket fit, hand, court, floor response, friction/spin, menu controls, haptics and local reports retained. No multiplayer or automatic uploads.
+- Regression checks cover slow/fast swings, the fifteen drills, old/new preferences, persistence, invalid settings and preservation of personal grip/floor values.
+- APK build, signature, version and 1,136 automated checks verified. Installed as an update on the owner's Quest; real-world feel still needs play testing.
+
 ## 0.0.14
 
 - Default court extended slightly from 6.00 to 6.50 m; width remains 2.40 m.

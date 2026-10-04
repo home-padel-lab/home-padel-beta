@@ -8,7 +8,9 @@ Mixed-reality padel physics prototype for Meta Quest 3. This repository is for i
 2. Download the latest English **Friend Package ZIP**, then extract it on your computer. It contains the APK and `START-HERE-English.md`. Alternatively download the APK on its own.
 3. Follow [the installation and controls guide](START-HERE-English.md). Your friend does not need Unity. Quest developer mode and an authorized USB connection are needed for the installation method described there.
 
-Current build: **0.0.14**. New in this build: a slightly longer compact court, lower net, stepped side walls with taller ends/doorway frames, open side doors and softer glass rebound. Firmer joystick input and stronger racket-impact vibration from 0.0.13 are retained. The app is offline; there is no multiplayer yet.
+Current build: **0.0.15**. Wall bounce and racket power both start at **0.45**: more wall return than 0.30–0.35, less racket response than 0.65. This update deliberately adopts these two settings once, including on earlier installs; later adjustments are remembered normally. Your grip, court, floor bounce and reports are kept. The compact court from 0.0.14 and joystick/haptic improvements from 0.0.13 are retained. The app is offline; there is no multiplayer yet.
+
+Once invited, accept the GitHub invitation and sign in with that SAME account. Open Releases and download **HomePadel-0.0.15-Friend-Package.zip** under **Assets**, not the automatically generated Source code ZIP. Extract it and follow the English guide to install the APK on your Quest using an authorized computer. GitHub access does not install the app automatically and this is not a Meta Store release. For updates, download the new version from Releases and install over the existing app; do not uninstall first.
 
 ## What to test
 
