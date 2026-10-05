@@ -1,5 +1,14 @@
 # Beta changelog
 
+## 0.0.21
+
+- Easy / Medium / Advanced bot difficulty. Easy gives slower near-centre returns (legacy saved ±18 cm placement retained); Medium varies sides/depth; Advanced combines wider short/deep targets and receiving heights. Eight repeatable targets in Medium/Advanced, not random match tactics.
+- Bounded bot movement and prediction frequency increase with level; pace fine-tune remains 0.80–1.15. Difficulty saves separately; upgrades without that preference start Easy. No automatic first serve; bot/machine remain mutually exclusive.
+- Natural steps are intended within a cleared physical area and active Quest boundary. Targets are limited by virtual court dimensions, not scanned safe room space; no furniture detection or tracked-head target following.
+- Player racket, wall/floor bounce, hand release, fit and previous local data unchanged. Reports add `botDifficulty`; HP1 does not contain bot level or ball placement. No automatic uploads, scoring, complete rules or multiplayer.
+- 1,093 pure plus 1,106 unique Unity checks passed (2,199 total), including 216 complete patterned returns over three levels and nine court sizes, pace, finite movement, menu and persistence checks. APK version 21 / 0.0.21 and same signing certificate audited. Installed as an update on the owner's Quest 3; physical feel and sustained refresh still require headset testing. Quest 3S untested.
+- [Difficulty guide](Bot-Difficulty-0.0.21-English.md). The ZIP audit is a build-time snapshot from before installation/publication. Update without uninstalling.
+
 ## 0.0.20
 
 - Simple blue/cyan training bot and explicit bot/machine selector. Start selected mode closes the menu ready, without automatically firing a ball. The modes are mutually exclusive; opening Menu stops both.

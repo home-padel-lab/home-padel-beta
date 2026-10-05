@@ -1,5 +1,13 @@
 # Testing and calibration feedback
 
+## Difficulty and natural movement (0.0.21)
+
+Follow [the difficulty guide](Bot-Difficulty-0.0.21-English.md). Start in Easy, pace 1.00. Select **Start selected mode · no ball**; the free-hand primary face button sends a gentle serve, then hit with your racket. Repeat similar strokes for one minute at each level. Medium/Advanced vary sides and depth to encourage natural steps, only inside a cleared real area and your active boundary. Leave balls outside that area and start a new serve; virtual targets are not safe-room measurements.
+
+Check switching bot/machine, difficulty persistence after reopening the app, relative pace/placement, missed or repeated hits, and comfort. Keep auto-save ON: launch records now identify `botDifficulty`, and bot return counts stay separate from your hits. Share level, pace, court dimensions, headset and voluntary local report. HP1 does not include difficulty or ball fit, so screenshot those menu values separately. Physics, grip and release are unchanged from 0.0.20. See [current training and hand-ball controls](Training-and-HandBall-0.0.21-English.md).
+
+The older sections below describe previous builds. In 0.0.21 the old placement row is replaced by difficulty; use the current controls above.
+
 ## Bot, machine and hand release (0.0.20)
 
 Follow [the training and hand-ball guide](Training-and-HandBall-0.0.20-English.md) for the exact controls and five-minute checklist. Start with both modes OFF: fit the ball on the free hand using the live preview, then test five still-hand drops and gentle upward/forward tosses. Return the index trigger fully to neutral before each new pickup. No preset throw boost is applied.

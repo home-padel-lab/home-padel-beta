@@ -1,10 +1,12 @@
-# Home Padel Lab — English test build 0.0.20
+# Home Padel Lab — English test build 0.0.21
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.20-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.21-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
 
-Build 0.0.20 adds a shared **Training · bot / ball machine** selector and **Ball in hand · fit & release** with a live ball preview and coloured controller-local adjustment arrows. See `Training-and-HandBall-0.0.20-English.md` for the new controls and a short test checklist. The bot predicts with the actual floor/glass/drag/spin solver, including shots off your own back glass. Selecting a mode does not fire a ball. Grip velocity (including wrist rotation) is used at release when valid and consistent with recent movement; a short filtered position history is the fallback. Trigger pickup/release thresholds are 55%/35%, with full neutral needed after a menu or cancellation. There is no preset throw boost. Ball placement saves separately for each free hand. Racket fit, power response, wall bounce and earlier reports remain intact. Bot returns remain controlled neutral-spin practice trajectories, not full opponent swings; it can miss and is not a match AI. No multiplayer or furniture detection.
+Build 0.0.21 adds **Bot difficulty: Easy / Medium / Advanced** in **Training · bot / ball machine**. Easy returns slowly near the centre; Medium varies sides and depth; Advanced uses wider, short/deep targets, faster returns and quicker bounded bot movement. Use LEFT stick left/right to select a level, or X to cycle; then **Start selected mode · no ball**. Difficulty is saved independently. The existing pace slider now fine-tunes each level. Upgrades without a level saved start in Easy; previous pace/legacy Easy placement settings remain. See `Bot-Difficulty-0.0.21-English.md`. Natural steps are intended in Medium/Advanced, but only inside a cleared real area and your active boundary: virtual court dimensions do not prove that area is safe. The app does not scan furniture or recenter return targets on your head. Start with Easy. Player racket/bounce and hand-release physics remain unchanged; reports identify the bot level. HP1 does not contain bot difficulty or ball placement.
+
+Build 0.0.20 introduced the shared **Training · bot / ball machine** selector and **Ball in hand · fit & release** with a live ball preview and coloured controller-local adjustment arrows. See the updated `Training-and-HandBall-0.0.21-English.md` for current controls and a short test checklist. The bot predicts with the actual floor/glass/drag/spin solver, including shots off your own back glass. Selecting a mode does not fire a ball. Grip velocity (including wrist rotation) is used at release when valid and consistent with recent movement; a short filtered position history is the fallback. Trigger pickup/release thresholds are 55%/35%, with full neutral needed after a menu or cancellation. There is no preset throw boost. Ball placement saves separately for each free hand. Racket fit, power response, wall bounce and earlier reports remain intact. Bot returns remain controlled neutral-spin practice trajectories, not full opponent swings; it can miss and is not a match AI. No multiplayer or furniture detection.
 
 Build 0.0.18 adds free-hand ball pickup/release when the ball machine is OFF. With the racket in your right hand, squeeze and hold the LEFT index trigger to hold a ball above that controller. Open the trigger to drop it; move your hand while releasing to toss it. The toss inherits measured hand movement, without a preset launch boost or aiming assistance. Squeeze again for another ball. A left-handed racket mirrors this to the right controller. The ball cannot be picked up during automatic feeding, a pending machine launch, menus or fixed calibration. Menu, tracking loss or app pause cancels a held ball without throwing; release the trigger fully before picking up again. Hand releases also start local reports if auto-save is ON. Stand in your safe area; do not chase the ball.
 
@@ -43,7 +45,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.20-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.21-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -52,7 +54,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.20-English.apk
+.\adb.exe install -r .\HomePadel-0.0.21-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 
@@ -68,7 +70,7 @@ For gentle tap testing, keep the machine OFF and close Menu. Hold the LEFT trigg
 
 **Just play:** recording is ON by default. Each launched ball starts a measured trial. Launches, setup values, ball trajectories, virtual racket poses and floor/glass/net/racket contacts are saved locally. Opening Menu ends that ball's trial; launching again starts another. Nothing is uploaded. No camera images, room scans, microphone audio or account IDs are recorded.
 
-1. Play for a few minutes using the same court and one repeated drill. Keep your boundary active; do not chase the ball.
+1. Play for a few minutes using the same court and one repeated drill or bot level. Keep your boundary active and move only within your cleared area. Leave escaped/out-of-area balls; do not go beyond your boundary to retrieve them.
 2. Open **Menu > Calibration & reports**. **Auto-save game data** shows ON/OFF. X or left/right toggles it. The choice is remembered. OFF prevents new measurements and feedback, but does not delete existing reports.
 3. Optionally select **Your feedback** with left/right, then highlight **Save feedback** and press X. Ratings are linked to the last recorded ball: Feels good / Bounce too high / Too fast / Too many bounces.
 4. Select **Export test report**, then X. This creates a stable `report-...jsonl` snapshot containing the session so far. The filename appears on screen. Export does NOT send it anywhere. Repeated export without new data reuses the same snapshot.
@@ -140,7 +142,7 @@ A separate local CSV is saved every five seconds while the app is running. It re
 
 Send the `render-...csv` file voluntarily with headset model, build number and which drill you used. Empty CPU/GPU/counter columns mean unsupported measurements, not zero cost. Display Hz and app-observed FPS do not by themselves prove compositor stability. Existing physics JSONL reports remain in `CalibrationReports` as described above.
 
-Start with **Slow straight shot**, one ball at a time, while standing in one place. Keep the Quest safety boundary active, use wrist straps, and clear the entire reach of your arms and controllers. Do not chase balls. Stop if passthrough or tracking is lost.
+Start with **Slow straight shot** or **Easy bot**, one ball at a time, while standing in one place. For Medium/Advanced bot play, clear room for natural steps as well as the entire reach of your arms and controllers. Keep the Quest safety boundary active and use wrist straps. Movement is part of training, but never follow a ball outside the cleared area; reset it with the free-hand face button instead. Stop if passthrough or tracking is lost.
 
 The virtual court and walls are NOT a measurement of safe physical space. This prototype does not detect furniture or obstacles. Court size changes virtual geometry only.
 
