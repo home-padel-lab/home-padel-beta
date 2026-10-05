@@ -1,5 +1,17 @@
 # Testing and calibration feedback
 
+## Current menu navigation (0.0.22)
+
+Use [the current menu guide](Menu-Guide-0.0.22-English.txt), not the older flat-menu paths below. Options always use the LEFT controller. Up/down selects, left/right changes a value, X performs the labelled action, Y returns to the previous screen, Menu saves/closes. Push firmly; hold the LEFT trigger for finer fit/feel steps.
+
+Try finding each function without PC help: **Equipment fit > Racket fit**, **Ball in hand**, **Play & training > bot / machine / free practice**, **Court & physics > Bounce & racket power**, **Advanced spin & friction**, and **Reports & sharing**. Verify the selected row remains visible when scrolling, Y returns where expected, single-ball and auto-feed actions are distinct, and opening Menu stops both bot and machine. Complete restores/imports require a second X; Y or changing row cancels. X on a numeric row still restores only that value, as labelled.
+
+Start the bot through Play, choose difficulty, then START; serve with the FREE-hand X/A. Machine has Launch one ball (2-second delay) and Start practice (automatic feeding). Free practice closes with both modes OFF. Keep the Quest boundary on; move only in a cleared safe area.
+
+Record through **Reports & sharing > Recording, tests & feedback**. Share codes through **Reports & sharing > Share or load a setup**. HP1 excludes ball fit and bot difficulty: include screenshots of those separately. Physics and existing local data have not changed. Report unclear wording, unexpected button actions or text that is hard to read, together with build/headset and optional local reports. Nothing uploads automatically.
+
+The sections below preserve older-version testing history; prefer current paths above.
+
 ## Difficulty and natural movement (0.0.21)
 
 Follow [the difficulty guide](Bot-Difficulty-0.0.21-English.md). Start in Easy, pace 1.00. Select **Start selected mode · no ball**; the free-hand primary face button sends a gentle serve, then hit with your racket. Repeat similar strokes for one minute at each level. Medium/Advanced vary sides and depth to encourage natural steps, only inside a cleared real area and your active boundary. Leave balls outside that area and start a new serve; virtual targets are not safe-room measurements.

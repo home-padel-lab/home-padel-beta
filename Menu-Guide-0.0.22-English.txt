@@ -1,0 +1,77 @@
+HOME PADEL LAB 0.0.22 — MENU GUIDE
+English beta for Quest 3 / 3S. Actual headset testing is still needed.
+
+WHAT CHANGED
+Four sections replace the growing flat options list. Long screens show five
+rows at a time; use up/down to see more. Y returns to the previous screen and
+remembers the highlighted row. Your physics, racket fit and ball fit are kept.
+
+CONTROLS — LEFT CONTROLLER, EVEN IF YOUR RACKET IS LEFT-HANDED
+Menu (three lines): open options / save all changes and close.
+Stick up/down: select a row. Stick left/right: change its value.
+Push firmly (75%); release towards centre for a single step. Holding repeats.
+X: the action written at the bottom of the screen.
+Y: back, or cancel a pending restore/import.
+Left index trigger: finer steps for racket fit, ball fit and feel controls.
+On numeric rows, X resets ONLY that selected value to its default; the footer
+explicitly says so. Restoring a whole fit, all physics or the court, or loading
+a shared setup, requires a SECOND X press. Y or changing row cancels it.
+
+START HERE
+1. Equipment fit > Racket fit: choose your racket hand. Adjust RED / GREEN /
+   BLUE position axes using the matching live arrows. Scroll down for face
+   tilt, handle twist and side lean. Save and test grip closes with no ball.
+2. Equipment fit > Ball in hand: adjust the separate FREE-hand ball position.
+   Save and try a drop. Fully release the trigger, then squeeze it to hold a
+   ball. Release while still to drop; move the hand to toss. No launch boost.
+3. Play & training > Ball machine: choose Slow straight shot, then Launch one
+   ball. The menu closes and ONE ball launches after two seconds. Select
+   Start practice for repeated balls after the chosen interval instead.
+
+PLAY & TRAINING
+Play against the bot: select Easy / Medium / Advanced; scroll to START selected
+mode. Default mode is BOT when opened from this entry. Starting enables the bot
+but does NOT serve. FREE-hand X (left) / A (right) serves one ball. Y / B stops
+the bot. Easy mostly stays near the centre; Medium and Advanced vary placement.
+The mode selector can switch to MACHINE; START alone does not enable auto-feed.
+Ball machine: 15 shot types, interval, repeat-one or cycle-all mode, separate
+single-ball and auto-feed actions. An infeasible drill is blocked with a message.
+Free practice: closes with bot and machine OFF. Use the FREE-hand index trigger
+to hold, drop or toss a ball. The trigger is disabled during automatic feeding.
+Controller help: four short explanations; it never starts a mode or changes fit.
+
+COURT & PHYSICS
+Court size: length / width in metres. Ball speed is NOT scaled with court size.
+Bounce & racket power: wall bounce, floor bounce and racket power. Lower wall
+bounce loses more energy. Change one value at a time, then Test with ball machine.
+Advanced spin & friction: floor grip, wall grip, racket spin grip, spin in flight.
+These remain experimental tuning values, not measured padel material constants.
+Restore physics defaults resets all SEVEN physics values, not your personal fit.
+No automatic new court presets, racket dimensions or speed-scaling model are
+introduced in this build. Default wall response remains 0.55, racket power 0.45.
+
+REPORTS & SHARING
+Recording, tests & feedback: Auto-save game data records normal play locally.
+Run calibration: five fixed tests; watch rather than hit. Opening Menu cancels.
+Your feedback: choose a rating, then Save feedback. Export test report flushes
+the local report; a PC/USB is needed to retrieve it. There is no auto-upload.
+Share or load a setup: choose the scope. Screenshot the HP1 code and send it
+with your app version. Export JSON is optional. Loading needs SharedSetup.json
+in /sdcard/Android/data/com.homepadel.lab/files and a second X confirmation.
+HP1 scopes contain racket fit and/or physics, court and machine settings only.
+Ball-in-hand fit and bot difficulty are NOT included in this legacy setup code.
+No camera image, audio or room scan is recorded. Send reports only voluntarily.
+
+IMPORTANT
+Opening Menu stops BOTH bot and machine and cancels pending launches. Closing
+does not automatically resume training: deliberately start/serve again.
+Virtual walls do not prove that your room is safe. Keep the Quest boundary on,
+clear furniture and use wrist straps. Move only within the safe cleared area.
+This build has no obstacle scan or multiplayer.
+
+UPDATE / INSTALL
+Install HomePadel-0.0.22-English.apk with your existing APK installer, or with
+Android Platform Tools: adb install -r HomePadel-0.0.22-English.apk
+Enable developer mode, connect a USB DATA cable and allow USB debugging inside
+the headset. An update keeps app settings and reports; do NOT uninstall first.
+Open Home Padel Lab in the sideloaded / Unknown Sources library.

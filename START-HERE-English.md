@@ -1,8 +1,10 @@
-# Home Padel Lab — English test build 0.0.21
+# Home Padel Lab — English test build 0.0.22
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.21-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.22-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+Build 0.0.22 reorganizes the menu into **Play & training**, **Equipment fit**, **Court & physics**, and **Reports & sharing**. See [the current menu guide](Menu-Guide-0.0.22-English.txt). Y returns to the previous screen and remembers its selection; long screens show five rows at once. Each selected row explains its action. Restoring a complete setup or importing needs two X presses; Y or changing row cancels. X on numeric rows still resets only that value, explicitly labelled. Racket-hand X toggles hands. Opening Menu stops both modes; closing alone does not restart them. Physics, geometry, difficulty, saved fits and reports are unchanged. The older version descriptions below preserve history, not the current menu paths.
 
 Build 0.0.21 adds **Bot difficulty: Easy / Medium / Advanced** in **Training · bot / ball machine**. Easy returns slowly near the centre; Medium varies sides and depth; Advanced uses wider, short/deep targets, faster returns and quicker bounded bot movement. Use LEFT stick left/right to select a level, or X to cycle; then **Start selected mode · no ball**. Difficulty is saved independently. The existing pace slider now fine-tunes each level. Upgrades without a level saved start in Easy; previous pace/legacy Easy placement settings remain. See `Bot-Difficulty-0.0.21-English.md`. Natural steps are intended in Medium/Advanced, but only inside a cleared real area and your active boundary: virtual court dimensions do not prove that area is safe. The app does not scan furniture or recenter return targets on your head. Start with Easy. Player racket/bounce and hand-release physics remain unchanged; reports identify the bot level. HP1 does not contain bot difficulty or ball placement.
 
@@ -45,7 +47,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.21-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.22-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -54,7 +56,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.21-English.apk
+.\adb.exe install -r .\HomePadel-0.0.22-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 
@@ -62,7 +64,7 @@ Before installing, the first command must show your headset with the status `dev
 
 ## First two minutes
 
-Clear a safe standing area and keep the Quest boundary active. Press the LEFT Menu button (three lines). Use the LEFT stick up/down to select, left/right to change, and X to confirm. Start with **Racket fit**, then **Save and test grip**. Reopen Menu, choose **Ball machine**, select **Slow straight shot**, then **Launch one ball**. It launches after two seconds. Once comfortable, select **Start practice** for repeated balls. Opening Menu stops the machine.
+Clear a safe standing area and keep the Quest boundary active. Press the LEFT Menu button (three lines). Use the LEFT stick up/down to select, left/right to change, and X for the labelled action. Start with **Equipment fit > Racket fit**, then **Save and test grip**. Reopen Menu, choose **Play & training > Ball machine**, select **Slow straight shot**, then **Launch one ball**. It launches after two seconds. Once comfortable, select **Start practice** for repeated balls. Opening Menu stops both modes.
 
 For gentle tap testing, keep the machine OFF and close Menu. Hold the LEFT trigger to pick up a ball, then release it above the racket face. Try ten small upward taps without leaving your safe standing area. Compare slow and moderate strokes before changing power or bounce. The grip anchor and pose have been checked mathematically; only you can confirm the physical fit while holding the controller. Existing calibration has not been reset.
 
@@ -71,7 +73,7 @@ For gentle tap testing, keep the machine OFF and close Menu. Hold the LEFT trigg
 **Just play:** recording is ON by default. Each launched ball starts a measured trial. Launches, setup values, ball trajectories, virtual racket poses and floor/glass/net/racket contacts are saved locally. Opening Menu ends that ball's trial; launching again starts another. Nothing is uploaded. No camera images, room scans, microphone audio or account IDs are recorded.
 
 1. Play for a few minutes using the same court and one repeated drill or bot level. Keep your boundary active and move only within your cleared area. Leave escaped/out-of-area balls; do not go beyond your boundary to retrieve them.
-2. Open **Menu > Calibration & reports**. **Auto-save game data** shows ON/OFF. X or left/right toggles it. The choice is remembered. OFF prevents new measurements and feedback, but does not delete existing reports.
+2. Open **Menu > Reports & sharing > Recording, tests & feedback**. **Auto-save game data** shows ON/OFF. X or left/right toggles it. The choice is remembered. OFF prevents new measurements and feedback, but does not delete existing reports.
 3. Optionally select **Your feedback** with left/right, then highlight **Save feedback** and press X. Ratings are linked to the last recorded ball: Feels good / Bounce too high / Too fast / Too many bounces.
 4. Select **Export test report**, then X. This creates a stable `report-...jsonl` snapshot containing the session so far. The filename appears on screen. Export does NOT send it anywhere. Repeated export without new data reuses the same snapshot.
 5. Connect the headset to an authorized PC when you want the files retrieved. Your tester can send the exported report, their headset model and a short description of what felt wrong. A setup-code screenshot alone does not include measured motion/bounce data.
@@ -95,28 +97,28 @@ Files are flushed about every 250 ms, and on app pause/normal shutdown. An abrup
 - Right controller: racket.
 - Left X: one gentle serve while the bot is active; otherwise one machine ball.
 - Left Y: stop an active bot; otherwise start/stop automatic feeding.
-- Free-hand index trigger: hold a ball when automatic feeding is OFF, open to drop/toss. Use **Ball in hand · fit & release** if its placement feels wrong.
+- Free-hand index trigger: hold a ball when automatic feeding is OFF, open to drop/toss. Use **Equipment fit > Ball in hand** if its placement feels wrong.
 - Left Menu button (three lines): open options; press again to save and close.
-- Every options screen uses the LEFT controller: stick up/down selects a row, left/right changes its value, X runs a highlighted action or resets a highlighted value, Y returns to the main menu. The bottom line says exactly what X will do.
+- Every options screen uses the LEFT controller: stick up/down selects a row, left/right changes its value, X performs the labelled action, Y returns to the previous screen. Complete restores/imports need a second X. The bottom line says exactly what X will do.
 - **Racket fit** combines hand, position and rotation on one screen. For grip position, match the RED/GREEN/BLUE arrow near your virtual handle: push the left stick right to move toward that arrow, left to move the other way. Rotation controls show your adjustment relative to the default, starting at zero degrees. Hold the left trigger for smaller adjustment steps. **Save and test grip** closes without launching a ball.
-- **Bounce & feel** adjusts glass rebound, floor rebound, racket response, friction and spin curvature. The selected row explains what a higher/lower value does. X resets only that value; **Reset bounce & feel** resets physics without changing your grip or court.
+- **Court & physics > Bounce & racket power** has wall/floor bounce and racket power; **Advanced spin & friction** has friction and spin. X resets only the highlighted numeric value. **Restore physics defaults** resets all seven physics values, after confirmation, without changing grip/court.
 
 Opening the menu pauses the ball and stops the machine, including any pending shot. Pressing Menu to close saves your settings but does NOT launch a ball. Explicit launch/start actions below are the exception because you deliberately chose to start. Losing racket tracking also stops the machine. Settings are saved locally on your headset, including hand, grip, physics, court and drill settings.
 
 ## Start the ball machine
 
-1. Open Menu and select **Ball machine · start practice**, then press X.
+1. Open Menu, select **Play & training > Ball machine**, then press X.
 2. Highlight **Shot type** and use left/right to choose a ball. Start with **Slow straight shot**.
 3. Set **Seconds between balls** and **Practice mode**: repeat one shot or cycle all fifteen.
 4. Select **Launch one ball** and press X for ONE ball after a two-second delay, or select **Start practice** and press X for automatic feeding after the selected interval.
 5. The menu closes so you can play. Press Menu to stop safely and adjust again. With a right-hand racket, left Y also stops/starts auto-feed during play; left X launches a ball manually. For a left-hand racket, these gameplay actions use right A/B. Configuration always uses the left controller.
 
-If the selected drill shows **NOT FEASIBLE**, change the court/bounce or choose another ball. Launch actions stay blocked until a valid trajectory exists. **Save without launching** closes the menu with the machine off.
+If the selected drill shows **NOT FEASIBLE**, change the court/bounce or choose another ball. Launch actions stay blocked until a valid trajectory exists. **Save & close · machine OFF** closes the menu without starting training.
 
 ## Send a good setup back
 
-1. Open **Share setup**, or use **Share racket fit** / **Share bounce & feel** from the adjustment screen.
-2. In **Settings to share**, choose **Racket only**, **Physics + court + machine**, or **Everything** with left/right.
+1. Open **Reports & sharing > Share or load a setup**, or use **Share racket fit** / **Share bounce & feel** from the adjustment screen.
+2. In **Settings to share**, choose **Racket only**, **Physics setup** (physics/court/machine), or **Racket + physics setup** with left/right. HP1 does NOT include ball fit or bot difficulty.
 3. Take a screenshot showing BOTH lines of the `HP1-...` setup code and send it with your feedback. No configuration-file access is needed for this method. The code reproduces the chosen settings; it is not just a random reference number.
 4. Please include headset model, racket hand, drill used and what improved. Change one physics setting at a time and compare the same drill at the same court size.
 

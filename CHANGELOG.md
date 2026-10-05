@@ -1,5 +1,15 @@
 # Beta changelog
 
+## 0.0.22
+
+- Four menu categories: Play & training, Equipment fit, Court & physics, Reports & sharing. Separate bot/machine/free-practice entries and controller help.
+- Five-row scrolling lists keep growing menus readable. Y returns to the actual previous screen and restores its selected row. Context help and the footer explain the selected control/action.
+- Separate basic bounce/power and advanced friction/spin. Complete restores and setup imports require two X presses; Y or changing the row cancels. Numeric X restores only that value, as labelled. Racket-hand X now toggles hands.
+- HP1 sharing labels explain the actual scope; ball placement and bot difficulty are not included in that legacy code.
+- Physics, wall 0.55 / racket power 0.45, geometry, bot levels, hand release, saved calibration and reports unchanged. No global speed scaling or new racket/court profile.
+- 1,093 pure + 1,153 unique Unity checks passed (2,246 total), including 48 menu-usability checks. Fifteen menu previews inspected. APK version 22 / 0.0.22, signature and clean release components audited. Actual on-headset readability, feel and sustained refresh require testing; Quest 3S unverified.
+- Download the Friend Package ZIP for APK + current English menu/install guide + audit. The audit is an immutable build-time snapshot before installation/publication. Update without uninstalling.
+
 ## 0.0.21
 
 - Easy / Medium / Advanced bot difficulty. Easy gives slower near-centre returns (legacy saved ±18 cm placement retained); Medium varies sides/depth; Advanced combines wider short/deep targets and receiving heights. Eight repeatable targets in Medium/Advanced, not random match tactics.
