@@ -1,5 +1,13 @@
 # Testing and calibration feedback
 
+## Current wall comparison and room placement (0.0.29)
+
+Use **Court & physics > Bounce & racket power > Wall bounce**. Compare 0.75 with the retained 0.55 baseline on the SAME court and build, without changing racket/floor/spin settings. First try gentle free-hand drops and back-wall counters, then bot Easy. Save/close after changing a value. Auto-save records locally as before; include build, wall value, court dimensions and bot/drill in feedback. Sharing reports is optional, not automatic.
+
+In **Court & physics > Place court in your room**, LEFT stick slides, RIGHT stick turns and LEFT trigger is slower. X accepts, Y cancels; B twice resets. Check options stay readable after changing court size. Full size adds a 10×20 m footprint with the existing experimental compact heights. Test edge/rim/throat/handle contacts and impact sounds; no swing/whoosh should play. Virtual placement and dimensions do not prove your room is safe. Stop if dizzy or nauseous.
+
+The older-version sections below are historical; prefer the current values and instructions above.
+
 ## Court profiles and sharing (0.0.23)
 
 Follow [the court profiles guide](Court-Profiles-0.0.23-English.txt). In **Court & physics > Court size**, test Compact / Medium / Large in singles and doubles. Check the read-only playing width × length, persistence after restarting, and that switching back restores your base singles size. Existing 2.4×6.5 m should remain Custom on upgrade. Reset to Compact requires two X presses. Doubles is only geometry: no networking, partner, scoring or second bot.

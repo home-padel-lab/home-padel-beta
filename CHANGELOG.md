@@ -1,5 +1,14 @@
 # Beta changelog
 
+## 0.0.29
+
+- Wall-only trial: 0.55 to 0.75. Other ball coefficients unchanged from 0.0.28; untouched old defaults migrate once while custom values and previous keys remain. Restore just Wall bounce to 0.55 for comparison.
+- Includes local 0.0.24–28 work not previously published: simplified rim/edge/throat/handle contacts, floor sliding/rolling, Full size fixed 10×20 m footprint, impact/glass/net/rolling/UI sounds. No racket swing/whoosh sound.
+- Room-anchored options menu; paused joystick court placement with fine adjustment, accept/cancel and two-press reset. Room pose stays local, outside setup codes. No furniture scan or boundary replacement.
+- Glass machine drills replan their launch if stronger rebound makes the initial trajectory invalid; live ball coefficients are never changed by the planner.
+- 4,511 checks passed (2,462 pure + 2,049 unique Unity). Clean ARM64 URP APK, same signer. Installed on owner's Quest 3 without uninstalling; previous reports retained. Startup migration confirmation awaits reconnection/controller activation. Headset feel, comfort, sustained refresh and Quest 3S remain unverified. No multiplayer.
+- Reports remain local. This private repository receives only beta deliverables and guides, not purchased source assets, Unity source or personal session reports.
+
 ## 0.0.23
 
 - Three singles presets and derived doubles layouts in Court & physics > Court size. Width × length: Compact 2.4×6 / 4.8×9.6 m; Medium 3×7 / 6×12 m; Large 5×10 / 10×20 m. Doubles width is twice the base singles width; doubles length is twice its new width. Singles custom length survives switching back.

@@ -1,0 +1,26 @@
+Home Padel Lab 0.0.29 - wall response trial
+
+Wall rebound is now 0.75 instead of 0.55. Racket power, racket compression,
+floor bounce, friction, gravity, drag, spin and court dimensions are unchanged.
+This is an experimental comparison, not certified realistic padel physics.
+
+On first launch, the old untouched 0.55 setting upgrades to 0.75. Custom wall
+settings remain unchanged. Grip, room placement and reports are preserved.
+The previous wall preference stays saved separately.
+
+To compare: use Medium singles, turn off the ball machine and bot, then try
+gentle upward shots, direct wall shots and back-wall counters with similar
+swings. Afterwards try a rally with the bot. Feedback is recorded as before.
+
+To return to the previous response: open the left-controller Menu button,
+choose Court & physics, then Bounce & racket power > Wall bounce, and set it
+to 0.55. Save/close the menu. This deliberately restored value is respected
+on subsequent launches. Do not reset all physics to change just the wall.
+
+Also includes the already prepared 0.0.28 changes: no racket swing sound,
+a room-anchored options menu, and joystick court positioning. On the court
+placement screen: left stick moves, right stick rotates, trigger is fine
+adjustment, X accepts and Y cancels. Keep the physical play area clear;
+virtual repositioning does not replace the Quest boundary.
+
+This update does not claim to resolve dizziness. Stop if symptoms return.

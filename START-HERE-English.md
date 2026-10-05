@@ -1,4 +1,20 @@
-# Home Padel Lab — English test build 0.0.23
+# Home Padel Lab — English test build 0.0.29
+
+## Current version: start here
+
+Download **HomePadel-0.0.29-Friend-Package.zip** from [release 0.0.29](https://github.com/home-padel-lab/home-padel-beta/releases/tag/v0.0.29) under **Assets**, not Source code. Extract it and install **HomePadel-0.0.29-English.apk** with your usual authorized Quest APK setup (for example SideQuest). Update over the existing app without uninstalling. No Unity installation is needed. Wake both controllers and open Home Padel Lab from your installed development/unknown-source apps.
+
+This build tests **Wall bounce = 0.75** instead of 0.55. Other ball parameters are unchanged from 0.0.28. Untouched older 0.55 upgrades once; custom values and saved grip/court/reports remain. Open **LEFT Menu > Court & physics > Bounce & racket power > Wall bounce** to check it or deliberately restore 0.55, then save/close. Do not reset all physics to change only the wall. See **Wall-Trial-0.0.29-English.txt** in the ZIP or repository.
+
+Court positioning: **Court & physics > Place court in your room**. LEFT stick slides; RIGHT stick turns; LEFT trigger makes adjustment slower; X accepts, Y cancels, B twice resets. Menu accepts/closes. Placement is local to this headset, excluded from setup codes. It does not detect furniture or change the Quest boundary. Options stay room-anchored when court size changes. See **Placement-0.0.28-English.txt** in the ZIP.
+
+Full size is a fixed **10 × 20 m footprint**; net/wall heights remain experimental compact heights. Reduced presets and derived doubles remain. Doubles is geometry only, not multiplayer. Racket edges/throat/handle now have simplified contact responses. Impact/rolling/UI sounds are included; racket swing/whoosh sound is removed.
+
+Start with Free practice and gentle back-wall counters, then bot Easy or a slow machine drill. Keep the physical area clear, use wrist straps and your Quest boundary. Stop if dizzy or nauseous. This is an experimental beta, not a certified realism/performance/comfort fix; Quest 3S is untested. Reports stay local and are never automatically sent to GitHub. The package audit is an unchanged snapshot from before GitHub publication.
+
+## Earlier-version notes and detailed installation reference
+
+The sections below preserve historical changes. Prefer the current APK name, paths and values above wherever an older build or 0.55 baseline is mentioned.
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 

@@ -1,0 +1,45 @@
+HOME PADEL LAB 0.0.28 - COURT PLACEMENT AND QUIET RACKET MOVEMENT
+
+Local APK. Not yet installed on Quest or published on GitHub.
+
+Changes
+- Racket movement / whoosh sound removed completely from gameplay and preview.
+  Real racket/ball impacts, floor, glass, net, rolling and UI sounds remain.
+- The options panel stays at its physical-room anchor when court size or
+  placement changes. It no longer gets left behind in the previous court frame.
+- Dedicated joystick court placement screen; training is paused while editing.
+- Existing grip, bounce, racket power, ball flight and court sizes are preserved.
+
+How to place the court
+1. Clear a safe space and keep your Quest boundary enabled. Virtual walls do
+   NOT detect or remove real furniture. Stand still while moving the court.
+2. LEFT Menu > Court & physics > Place court in your room.
+3. Centre BOTH joysticks before starting.
+4. LEFT joystick: slide the virtual court left/right or nearer/farther.
+   Directions follow where you are looking; there is no up/down height change.
+5. RIGHT joystick left/right: turn the virtual court around your current feet.
+6. Hold the LEFT index trigger for smaller, slower position/angle adjustments.
+7. X: KEEP placement and return to the previous menu. Y: CANCEL this edit
+   and restore its starting position/angle. B twice: request and confirm reset
+   to default placement. You can still cancel the whole edit after a reset.
+8. Menu: keep placement, save settings and close. Bot/machine stay OFF until
+   you explicitly start a training mode.
+
+The normal hold-Meta system recenter remains available. On a tracking-origin
+update the panel is placed in front of you again; centre both sticks to resume.
+If your headset/system recenter changes the room alignment, use this page again.
+
+Placement is saved locally on this headset only. It is NOT included in shared
+HP2 setup codes and does not replace room scanning or the Quest safety boundary.
+Changing court sizes keeps your manual offset/angle while adjusting the default
+near-back-wall player anchor. Re-check the fit against furniture after any size
+change; a full-size 10 x 20 m court does not fit safely in a small room.
+
+Sound controls
+Court & physics > Impact sounds & volume. More sound options now includes only
+glass style, rolling and menu clicks. Old saved Swing=ON cannot reactivate the
+removed movement sound. Original downloaded sound files have not been deleted.
+
+Before sharing: install over the old app, do not uninstall or clear app data if
+you want to keep grip, physics settings and recorded reports. Real headset
+readability, alignment and subjective feel still require a test in your room.
