@@ -1,5 +1,15 @@
 # Beta changelog
 
+## 0.0.23
+
+- Three singles presets and derived doubles layouts in Court & physics > Court size. Width × length: Compact 2.4×6 / 4.8×9.6 m; Medium 3×7 / 6×12 m; Large 5×10 / 10×20 m. Doubles width is twice the base singles width; doubles length is twice its new width. Singles custom length survives switching back.
+- Seven-row scrolling screen includes preset, format, read-only playing dimensions, custom base width/length, two-X reset and Save and play. Existing dimensions, including 2.4×6.5 m, preserved as Custom; new installs start Compact singles.
+- HP2 codes/JSON encode the singles base, preset/custom and doubles flag. HP1/old JSON still import; older apps cannot read HP2. Racket-only scope preserves recipient court/feel. Ball fit and bot level remain excluded.
+- Geometry, visible panels and collision planes share the layout. Net 0.78 m, side/back glass 1.40/2.00 m retained. Player swing curve, gravity, drag, spin, restitutions/friction and personal fit retained; no global court speed multiplier.
+- Machine/bot trajectories are replanned on layouts longer than 8 m, including faster machine launches where needed. Original short-court planning remains. Doubles is geometry only: no multiplayer, second bot or scoring. Virtual size is not a safe-room measurement.
+- 1,234 pure + 1,228 unique Unity checks passed (2,462 total), including 90 machine plans across six layouts and all three bot levels, migration, HP1/HP2 and menus. Eighteen menu previews rendered; five changed screens inspected. APK version 23 / 0.0.23, compatible signature and clean release audit verified. Physical feel, sustained refresh and Quest 3S still need testing.
+- Download the Friend ZIP for APK + [English court guide](Court-Profiles-0.0.23-English.txt) + immutable build-time audit (before installation/publication). Update without uninstalling. Reports remain local; no automatic uploads.
+
 ## 0.0.22
 
 - Four menu categories: Play & training, Equipment fit, Court & physics, Reports & sharing. Separate bot/machine/free-practice entries and controller help.

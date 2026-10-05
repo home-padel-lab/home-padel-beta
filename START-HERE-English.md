@@ -1,8 +1,10 @@
-# Home Padel Lab — English test build 0.0.22
+# Home Padel Lab — English test build 0.0.23
 
 This is a standalone Android APK for testing on a Meta Quest headset. The development target is Quest 3. It runs locally without a game account or an online server. This prototype does not have multiplayer.
 
-Install `HomePadel-0.0.22-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+Install `HomePadel-0.0.23-English.apk` using your Quest APK installation setup. It is not a Store app; a headset configured for installing development APKs is needed. Open **Home Padel Lab** and wake both controllers if the headset asks for them. Android/Meta system dialogs use the headset's language, not the game's English menu setting.
+
+Build 0.0.23 adds **Court & physics > Court size > Singles size preset / Match format**. See [the current court guide](Court-Profiles-0.0.23-English.txt). Compact, Medium and Large singles are 2.4×6, 3×7 and 5×10 m (width × length); doubles layouts are 4.8×9.6, 6×12 and 10×20 m. Doubles doubles the base singles width, then fixes length to twice the new width. Existing dimensions, including 2.4×6.5, migrate exactly as Custom; selecting Compact explicitly changes them to 2.4×6. New installations start Compact singles. HP2 setup codes preserve the singles base and doubles flag; this app still imports HP1, but older versions cannot import HP2. Ball fit and bot level are not encoded. Player swing/bounce/flight parameters and saved fit/reports are retained; machine/bot trajectories are replanned above 8 m, with faster launches where needed. Doubles is only a layout, not multiplayer or a second bot. Court size does not measure your safe real room; stay within your cleared area and Quest boundary. Older version descriptions below preserve history.
 
 Build 0.0.22 reorganizes the menu into **Play & training**, **Equipment fit**, **Court & physics**, and **Reports & sharing**. See [the current menu guide](Menu-Guide-0.0.22-English.txt). Y returns to the previous screen and remembers its selection; long screens show five rows at once. Each selected row explains its action. Restoring a complete setup or importing needs two X presses; Y or changing row cancels. X on numeric rows still resets only that value, explicitly labelled. Racket-hand X toggles hands. Opening Menu stops both modes; closing alone does not restart them. Physics, geometry, difficulty, saved fits and reports are unchanged. The older version descriptions below preserve history, not the current menu paths.
 
@@ -47,7 +49,7 @@ Send the APK and this guide, or the ZIP containing both. Extract the ZIP on the 
 1. Use a Quest 3 with both controllers. Other Quest models have not been tested.
 2. Enable Developer Mode and complete any developer-account requirements in [Meta's official headset setup guide](https://developers.meta.com/vr/documentation/unity/unity-env-device-setup/). Install the Quest USB driver on Windows if required by that guide.
 3. Connect the headset to the computer with a USB DATA cable. Put on the headset and approve **Allow USB debugging** for your own computer.
-4. If you already use an APK installer, install `HomePadel-0.0.22-English.apk` with it. Otherwise follow the Windows alternative below.
+4. If you already use an APK installer, install `HomePadel-0.0.23-English.apk` with it. Otherwise follow the Windows alternative below.
 5. Open **Home Padel Lab** from the headset's sideloaded-app library (commonly labelled **Unknown Sources**; the library layout may vary). Wake both controllers if prompted. Once installed, the USB cable and PC are not needed to play.
 
 ### Windows alternative: Android Platform Tools
@@ -56,7 +58,7 @@ Download [Google's official SDK Platform Tools for Windows](https://developer.an
 
 ```powershell
 .\adb.exe devices
-.\adb.exe install -r .\HomePadel-0.0.22-English.apk
+.\adb.exe install -r .\HomePadel-0.0.23-English.apk
 .\adb.exe shell am start -n com.homepadel.lab/com.unity3d.player.UnityPlayerGameActivity
 ```
 

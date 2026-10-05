@@ -1,0 +1,60 @@
+HOME PADEL LAB 0.0.23 — COURT SIZE & MATCH FORMAT
+
+This version adds court layouts; it is NOT a multiplayer release.
+The purchased racket, personal fit, floor/wall response and player racket-speed
+curve are unchanged. Net: 0.78 m; side glass: 1.40 m; back glass: 2.00 m.
+
+HOW TO SELECT
+Press LEFT Menu (three lines) > Court & physics > Court size.
+Up/down selects a row; left/right changes the selected value.
+Use a deliberate stick movement beyond 75%; return the stick to centre between
+steps. X advances a preset or toggles match format. Y goes back.
+
+1. Singles size preset: Compact, Medium or Large.
+2. Match format: SINGLES or DOUBLES layout.
+3. Playing court (width x length): calculated, read-only dimensions.
+4-5. Custom singles width/length: optional manual adjustments to the BASE size.
+6. Reset to Compact singles: requires X twice; Y cancels.
+7. Save and play: saves and closes. Bot and machine remain OFF until started.
+
+                     SINGLES             DOUBLES
+Compact              2.4 x 6.0 m         4.8 x 9.6 m
+Medium               3.0 x 7.0 m         6.0 x 12.0 m
+Large                5.0 x 10.0 m       10.0 x 20.0 m
+All dimensions above are WIDTH x LENGTH.
+Doubles width = twice the selected singles width.
+Doubles length = twice its NEW width (fixed length:width ratio of 2:1).
+Returning to Singles restores the base singles size, including a custom length.
+Changing custom singles length does not change doubles length: its ratio is fixed.
+
+UPDATING
+Install HomePadel-0.0.23-English.apk without uninstalling the existing app.
+Existing dimensions are preserved exactly and shown as Custom (saved singles)
+if they do not match a named preset. This includes the previous 2.4 x 6.5 m court.
+Selecting Compact explicitly changes that base size to 2.4 x 6.0 m.
+New installations start in Compact Singles. Previous fit, feel and reports stay.
+
+SHARING
+New setup codes use HP2 so a Physics setup can restore the singles base size and
+doubles flag, not just the outer dimensions. HP1 codes and old JSON still import
+in this version; older versions cannot import HP2. Racket-only imports still keep
+the receiving player's court and physics. Ball fit and bot level are NOT included.
+Reports are local; there is no automatic upload.
+
+TRAINING
+Play & training > Play against the bot > choose difficulty > START.
+FREE-hand X/A serves; Y/B stops the bot. The usual free-hand trigger hold/drop/toss
+is available in free practice and when the bot is ready for a serve.
+Play & training > Ball machine: choose a drill, then Start practice or Launch one
+ball. Opening Menu stops both modes; closing alone does not restart them.
+Machine/bot planning now supports the larger courts. Launch trajectories on
+layouts longer than 8 m are recalculated to remain feasible, including faster
+machine launches where needed. This does NOT scale your swing, gravity, drag,
+spin, restitutions or friction. Compact/saved courts up to 8 m retain old plans.
+
+SAFETY AND LIMITS
+Virtual court size does not measure safe real room space. Keep the Quest boundary
+active, use wrist straps and clear arm/controller reach. Large or doubles layouts
+do not imply that your room is large enough to move safely across the whole court.
+No furniture scan, teleport locomotion, second bot, doubles scoring or networking.
+Automated planning tests do not certify realistic feel or headset performance.

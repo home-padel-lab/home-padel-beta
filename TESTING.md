@@ -1,14 +1,22 @@
 # Testing and calibration feedback
 
-## Current menu navigation (0.0.22)
+## Court profiles and sharing (0.0.23)
 
-Use [the current menu guide](Menu-Guide-0.0.22-English.txt), not the older flat-menu paths below. Options always use the LEFT controller. Up/down selects, left/right changes a value, X performs the labelled action, Y returns to the previous screen, Menu saves/closes. Push firmly; hold the LEFT trigger for finer fit/feel steps.
+Follow [the court profiles guide](Court-Profiles-0.0.23-English.txt). In **Court & physics > Court size**, test Compact / Medium / Large in singles and doubles. Check the read-only playing width × length, persistence after restarting, and that switching back restores your base singles size. Existing 2.4×6.5 m should remain Custom on upgrade. Reset to Compact requires two X presses. Doubles is only geometry: no networking, partner, scoring or second bot.
+
+Try the same slow drill and bot Easy with each layout, then other drills/levels only within your cleared room. Training trajectories on layouts over 8 m are replanned and may launch faster; player racket response, gravity, drag, spin, wall 0.55 and floor response are not automatically scaled. Do not infer safety from virtual dimensions. Report build, singles base, format, effective dimensions, level/drill and optional exported report. Reports include the new court profile.
+
+New **HP2** codes include the base singles dimensions, preset/custom flag and doubles format. HP1 and older JSON still import; older apps cannot read HP2. Racket-only imports keep the recipient's court/physics. Ball fit and bot level remain excluded. Screenshot both code lines. Reports remain local and sharing is optional.
+
+## Retained menu navigation (from 0.0.22)
+
+Use [the category menu guide](Menu-Guide-0.0.22-English.txt), with the new Court size and HP2 sections above overriding its legacy sections. Options always use the LEFT controller. Up/down selects, left/right changes a value, X performs the labelled action, Y returns to the previous screen, Menu saves/closes. Push firmly; hold the LEFT trigger for finer fit/feel steps.
 
 Try finding each function without PC help: **Equipment fit > Racket fit**, **Ball in hand**, **Play & training > bot / machine / free practice**, **Court & physics > Bounce & racket power**, **Advanced spin & friction**, and **Reports & sharing**. Verify the selected row remains visible when scrolling, Y returns where expected, single-ball and auto-feed actions are distinct, and opening Menu stops both bot and machine. Complete restores/imports require a second X; Y or changing row cancels. X on a numeric row still restores only that value, as labelled.
 
 Start the bot through Play, choose difficulty, then START; serve with the FREE-hand X/A. Machine has Launch one ball (2-second delay) and Start practice (automatic feeding). Free practice closes with both modes OFF. Keep the Quest boundary on; move only in a cleared safe area.
 
-Record through **Reports & sharing > Recording, tests & feedback**. Share codes through **Reports & sharing > Share or load a setup**. HP1 excludes ball fit and bot difficulty: include screenshots of those separately. Physics and existing local data have not changed. Report unclear wording, unexpected button actions or text that is hard to read, together with build/headset and optional local reports. Nothing uploads automatically.
+Record through **Reports & sharing > Recording, tests & feedback**. Share codes through **Reports & sharing > Share or load a setup**. HP2 excludes ball fit and bot difficulty: include screenshots of those separately. Existing local data is retained. Report unclear wording, unexpected button actions or text that is hard to read, together with build/headset and optional local reports. Nothing uploads automatically.
 
 The sections below preserve older-version testing history; prefer current paths above.
 
