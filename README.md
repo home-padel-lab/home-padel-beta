@@ -1,5 +1,15 @@
 # Home Padel Lab — private beta
 
+## Current beta: 0.0.42
+
+[Download version 0.0.42](https://github.com/home-padel-lab/home-padel-beta/releases/tag/v0.0.42). Under Assets, choose **HomePadel-0.0.42-Friend-Package.zip** for the APK and current English instructions, or the APK directly. Do not download Source code to install the game. Sign in with your invited account; this repository remains private.
+
+Update without uninstalling or clearing data, and wake both controllers. This version includes bot matches, scoreboards, umpire, serve-floor guidance and experimental Arcade/NearReal profiles. Bot02/03/04 skin assets are included, but **Bot01 remains active; no skin selector or three-bot doubles gameplay yet**. Read the attached **START-HERE-0.0.42-English.txt** rather than old controls below. Sustained 72 Hz and real padel feel still require headset testing.
+
+## Archived 0.0.29 documentation
+
+The following version-specific details and controls describe the older 0.0.29 beta, not the current release.
+
 Mixed-reality padel physics prototype for Meta Quest 3. This repository is for invited beta testers: installation guides, APK releases and feedback. It does **not** contain the Unity source or the original purchased racket/ball assets.
 
 ## Download and install
