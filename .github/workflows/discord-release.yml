@@ -1,0 +1,33 @@
+name: Announce release on Discord
+
+# Posts every published GitHub Release (with APK download links) to #beta-builds on the PADEL 01 Discord.
+# Needs the repository secret DISCORD_WEBHOOK (Settings > Secrets and variables > Actions).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          if [ -z "$TAG" ]; then TAG=$(gh release view -R "$REPO" --json tagName -q .tagName); fi
+          gh release view "$TAG" -R "$REPO" --json name,tagName,body,url,isPrerelease,assets > rel.json
+          jq '{username:"PADEL 01 Releases",
+               content:"New PADEL 01 beta build is out!",
+               embeds:[{title:("PADEL 01 " + (if .name == "" then .tagName else .name end)),
+                 url:.url, color:13172480,
+                 description:((.body // "")[0:1500]),
+                 fields:[
+                   {name:"Download", value:([.assets[] | "[\(.name)](\(.url)) · \((.size/1048576)|floor) MB"] | if length==0 then "No files attached" else join("\n") end)},
+                   {name:"Version", value:.tagName, inline:true},
+                   {name:"How to install", value:"See the pinned message in #beta-builds", inline:true}]}]}' rel.json > payload.json
+          curl -sS --fail -H "Content-Type: application/json" -d @payload.json "$WEBHOOK"
